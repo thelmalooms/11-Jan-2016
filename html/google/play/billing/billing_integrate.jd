@@ -95,34 +95,38 @@ method calls.</p>
 <p>To add the AIDL to your project:</p>
 
 <ol>
-  <li>Copy the {@code IInAppBillingService.aidl} file to your Android project.
+  <li>First, download the Google Play Billing Library to your Android project:
+      <ol type="a">
+      <li>Select <strong>Tools > Android > SDK Manager</strong>.</li>
+      <li>Under <strong>Appearance & Behavior > System Settings > Android SDK</strong>,
+          select the <em>SDK Tools</em> tab to select and download <em>Google Play Billing
+          Library</em>.</li></ol>
+
+  <li>Next, copy the {@code IInAppBillingService.aidl} file to your project.
     <ul>
-      <li>If you are using Eclipse:
+      <li>If you are using Android Studio:
         <ol type="a">
-          <li>If you are starting from an existing Android project, open the
-          project in Eclipse. If you are creating a new Android project from
-          scratch, click <strong>File</strong> &gt; <strong>New</strong> &gt;
-          <strong>Android Application Project</strong>, then follow the
-          instructions in the <strong>New Android Application</strong> wizard
-          to create a new project in your workspace.
-          </li>
+          <li>Navigate to {@code src/main} in the Project tool window.</li>
 
-          <li>In the {@code /src} directory, click <strong>File</strong> &gt;
-          <strong>New</strong> &gt; <strong>Package</strong>, then create a
-          package named {@code com.android.vending.billing}.
-          </li>
+          <li>Select <strong>File > New > Directory</strong> and enter {@code aidl} in the
+          <em>New Directory</em> window, then select <strong>OK</strong>.
 
-          <li>Copy the {@code IInAppBillingService.aidl} file from {@code
-          &lt;sdk&gt;/extras/google/play_billing/} and paste it into the {@code
-          src/com.android.vending.billing/} folder in your workspace.
+          <li>Select <strong>File > New > Package</strong> and enter 
+          {@code com.android.vending.billing} in the <em>New Package</em> window, then select
+          <strong>OK</strong>.</li>
+
+          <li>Using your operating system file explorer, navigate to 
+          {@code &lt;sdk&gt;/extras/google/play_billing/}, copy the 
+          {@code IInAppBillingService.aidl} file, and paste it into the 
+          {@code com.android.vending.billing} package in your project.
           </li>
         </ol>
       </li>
 
-      <li>If you are developing in a non-Eclipse environment: Create the
+      <li>If you are developing in a non-Android Studio environment: Create the
       following directory {@code /src/com/android/vending/billing} and copy the
       {@code IInAppBillingService.aidl} file into this directory. Put the AIDL
-      file into your project and use the Ant tool to build your project so that
+      file into your project and use the Gradle tool to build your project so that
       the <code>IInAppBillingService.java</code> file gets generated.
       </li>
     </ul>
@@ -199,12 +203,12 @@ ServiceConnection mServiceConn = new ServiceConnection() {
 </pre>
 
 <p>
-  In your activity’s {@link android.app.Activity#onCreate onCreate} method,
+  In your activity\u2019s {@link android.app.Activity#onCreate onCreate} method,
   perform the binding by calling the {@link android.content.Context#bindService
   bindService} method. Pass the method an {@link android.content.Intent} that
   references the In-app Billing service and an instance of the {@link
   android.content.ServiceConnection} that you created, and explicitly set the
-  Intent's target package name to <code>com.android.vending</code> — the
+  Intent's target package name to <code>com.android.vending</code> \u2014 the
   package name of Google Play app.
 </p>
 
@@ -237,10 +241,10 @@ public void onCreate(Bundle savedInstanceState) {
 <p class="note">
   <strong>Important:</strong> Remember to unbind from the In-app Billing
   service when you are done with your {@link android.app.Activity}. If you
-  don’t unbind, the open service connection could cause your device’s
+  don\u2019t unbind, the open service connection could cause your device\u2019s
   performance to degrade. This example shows how to perform the unbind
   operation on a service connection to In-app Billing called {@code
-  mServiceConn} by overriding the activity’s {@link
+  mServiceConn} by overriding the activity\u2019s {@link
   android.app.Activity#onDestroy onDestroy} method.
 </p>
 
@@ -290,14 +294,14 @@ ArrayList&lt;String&gt; skuList = new ArrayList&lt;String&gt; ();
 skuList.add("premiumUpgrade");
 skuList.add("gas");
 Bundle querySkus = new Bundle();
-querySkus.putStringArrayList(“ITEM_ID_LIST”, skuList);
+querySkus.putStringArrayList(\u201cITEM_ID_LIST\u201d, skuList);
 </pre>
 
 <p>
   To retrieve this information from Google Play, call the {@code getSkuDetails}
   method on the In-app Billing Version 3 API, and pass the method the In-app
-  Billing API version (“3”), the package name of your calling app, the purchase
-  type (“inapp”), and the {@link android.os.Bundle} that you created.
+  Billing API version (\u201c3\u201d), the package name of your calling app, the purchase
+  type (\u201cinapp\u201d), and the {@link android.os.Bundle} that you created.
 </p>
 
 <pre>
@@ -357,8 +361,8 @@ if (response == 0) {
 <p>
   To start a purchase request from your app, call the {@code getBuyIntent}
   method on the In-app Billing service. Pass in to the method the In-app
-  Billing API version (“3”), the package name of your calling app, the product
-  ID for the item to purchase, the purchase type (“inapp” or "subs"), and a
+  Billing API version (\u201c3\u201d), the package name of your calling app, the product
+  ID for the item to purchase, the purchase type (\u201cinapp\u201d or "subs"), and a
   {@code developerPayload} String. The {@code developerPayload} String is used
   to specify any additional arguments that you want Google Play to send back
   along with the purchase information.
@@ -483,8 +487,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 <p>
   To retrieve information about purchases made by a user from your app, call
   the {@code getPurchases} method on the In-app Billing Version 3 service. Pass
-  in to the method the In-app Billing API version (“3”), the package name of
-  your calling app, and the purchase type (“inapp” or "subs").
+  in to the method the In-app Billing API version (\u201c3\u201d), the package name of
+  your calling app, and the purchase type (\u201cinapp\u201d or "subs").
 </p>
 
 <pre>

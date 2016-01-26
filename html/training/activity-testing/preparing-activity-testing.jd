@@ -9,15 +9,13 @@ trainingnavtop=true
 
 <h2>This lesson teaches you to</h2>
 <ol>
-  <li><a href="#eclipse">Set Up Eclipse for Testing</a></li>
+  <li><a href="#androidstudio">Set Up Android Studio for Testing</a></li>
   <li><a href="#cmdline">Set Up the Command Line Interface for Testing</a></li>
 </ol>
 
 <h2>You should also read</h2>
 <ul>
 <li><a href="{@docRoot}sdk/index.html">Getting the SDK Bundle</a></li>
-<li><a href="{@docRoot}tools/testing/testing_eclipse.html">Testing from Eclipse
-with ADT</a></li>
 <li><a href="{@docRoot}tools/testing/testing_otheride.html">Testing from Other
 IDEs</a></li>
 </ul>
@@ -33,42 +31,37 @@ class="button">Download the demo</a>
 </div>
 
 <p>Before you start writing and running your tests, you should set up your test
-development environment. This lesson teaches you how to set up the Eclipse
-IDE to build and run tests, and how to
-build and run tests with the Gradle framework by using the command line
+development environment. This lesson teaches you how to set up Android Studio to build and run 
+tests, and how to build and run tests with the Gradle framework by using the command line
 interface.</p>
 
 <p class="note"><strong>Note:</strong> To help you get started, the lessons are
-based on Eclipse with the ADT plugin. However, for your own test development, you
+based on Android Studio. However, for your own test development, you
 are free to use the IDE of your choice or the command-line.</p>
 
-<h2 id="eclipse">Set Up Eclipse for Testing</h2>
-<p>Eclipse with the Android Developer Tools (ADT) plugin provides an integrated
+<h2 id="androidstudio">Set Up Android Studio for Testing</h2>
+<p>Android Studio provides an integrated
 development environment for you to create, build, and run Android application
 test cases from a graphical user interface (GUI). A convenient feature that
-Eclipse provides is the ability to auto-generate a new test project that
+Android Studio provides is the ability to auto-generate a new test package that
 corresponds with your Android application project</a>.
 
-<p>To set up your test environment in Eclipse:</p>
+<p>To set up your test environment in Android Studio:</p>
 
 <ol>
-<li><a href="{@docRoot}sdk/installing/bundle.html">Download and install the
-Eclipse ADT plugin</a>, if you haven’t installed it yet.</li>
+<li><a href="{@docRoot}sdk/index.html">Download and install Android Studio</a>, 
+if you haven't installed it yet.</li>
 <li>Import or create the Android application project that you want to test
 against.</li>
-<li>Generate a test project that corresponds to the application project under
-test. To generate a test project for the app project that you imported:</p>
-   <ol type="a">
-   <li>In the Package Explorer, right-click on your app project, then
-select <strong>Android Tools</strong> &gt; <strong>New Test Project</strong>.</li>
-   <li>In the New Android Test Project wizard, set the property
-values for your test project then click <strong>Finish</strong>.</li>
+<li>Android Studio automatically creates a default test package. To view the test package, 
+in the Project tool window expand the directories 
+<strong>app &gt; src &gt; androidTest &gt; java</strong>.</li>
    </ol>
 </li>
 </ol>
 <p>You should now be able to create, build, and run test
-cases from your Eclipse environment. To learn how to perform these tasks in
-Eclipse, proceed to <a href="activity-basic-testing.html">Creating and Running 
+cases from Android Studio. To learn how to perform these tasks in
+Android Studio, proceed to <a href="activity-basic-testing.html">Creating and Running 
 a Test Case</a>.</p>
 
 <h2 id="cmdline">Set Up the Command Line Interface for Testing</h2>
@@ -92,4 +85,3 @@ Emulator.</li>
 <p>To learn more about using command line tools other than Gradle for test
 development, see
 <a href="{@docRoot}tools/testing/testing_otheride.html">Testing from Other IDEs</a>.</p>
-
