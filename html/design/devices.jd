@@ -24,7 +24,7 @@ page.image=images/cards/android-devices_2x.jpg
 
 <div id="landing-graphic-container">
   <div id="text-overlay">
-    <p itemprop="description">Change on local. The device-centric UI principles, overviews, and detailed guidelines
+    <p itemprop="description">The device-centric UI principles, overviews, and detailed guidelines
       described here build on the core <a href="{@docRoot}design/get-started/principles.html">Android Design Principles</a>
       to provide more specific design guidance for different form factors.
     </p>
